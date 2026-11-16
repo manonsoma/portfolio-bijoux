@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manon Soma Bijoux — Créations artisanales</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --creme: #f8f3ec;
+      --sable: #ece2d4;
+      --or: #b8925a;
+      --or-fonce: #8c6a3c;
+      --encre: #2b2622;
+      --gris: #6f655c;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Jost", sans-serif;
+      font-weight: 300;
+      background: var(--creme);
+      color: var(--encre);
+      line-height: 1.7;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* Navigation */
+    header {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(248, 243, 236, 0.92);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid var(--sable);
+    }
+    nav {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.1rem 1.5rem;
+    }
+    .logo {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.6rem; font-weight: 600; letter-spacing: 0.04em;
+    }
+    .logo span { color: var(--or); }
+    nav ul { list-style: none; display: flex; gap: 2rem; }
+    nav ul a {
+      font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.15em;
+      transition: color 0.2s;
+    }
+    nav ul a:hover { color: var(--or); }
+
+    /* Accueil */
+    .hero {
+      min-height: 85vh;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      text-align: center; padding: 4rem 1.5rem;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(184,146,90,0.12), transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(184,146,90,0.10), transparent 45%);
+    }
+    .hero .sur-titre {
+      text-transform: uppercase; letter-spacing: 0.3em; font-size: 0.8rem; color: var(--or-fonce);
+      margin-bottom: 1.2rem;
+    }
+    .hero h1 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2.8rem, 7vw, 5rem); font-weight: 400; line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 em { color: var(--or); }
+    .hero p { max-width: 520px; color: var(--gris); margin-bottom: 2.5rem; }
+    .bouton {
+      display: inline-block; padding: 0.9rem 2.4rem;
+      border: 1px solid var(--encre);
+      text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.8rem;
+      transition: all 0.25s;
+    }
+    .bouton:hover { background: var(--encre); color: var(--creme); }
+
+    /* Sections */
+    section { padding: 6rem 1.5rem; }
+    .conteneur { max-width: 1100px; margin: 0 auto; }
+    .titre-section { text-align: center; margin-bottom: 3.5rem; }
+    .titre-section h2 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2.6rem; font-weight: 400;
+    }
+    .titre-section .trait {
+      width: 50px; height: 1px; background: var(--or); margin: 1rem auto 0;
+    }
+
+    /* Créations */
+    #creations { background: #fff; }
+    .grille {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2.5rem;
+    }
+    .carte { text-align: center; }
+    .carte .image {
+      aspect-ratio: 4 / 5; overflow: hidden; margin-bottom: 1.2rem;
+      background: linear-gradient(135deg, var(--sable), var(--creme));
+      display: flex; align-items: center; justify-content: center;
+      color: var(--or); font-family: "Cormorant Garamond", serif; font-size: 1.1rem; font-style: italic;
+    }
+    .carte .image img {
+      width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s;
+    }
+    .carte:hover .image img { transform: scale(1.05); }
+    .carte h3 {
+      font-family: "Cormorant Garamond", serif; font-size: 1.5rem; font-weight: 600;
+    }
+    .carte .matiere {
+      font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--or-fonce);
+      margin-bottom: 0.4rem;
+    }
+    .carte p { color: var(--gris); font-size: 0.95rem; }
+
+    /* À propos */
+    .apropos {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+    }
+    .apropos .portrait {
+      aspect-ratio: 1; background: linear-gradient(135deg, var(--sable), #e3d3bd);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--or); font-family: "Cormorant Garamond", serif; font-style: italic;
+    }
+    .apropos h2 {
+      font-family: "Cormorant Garamond", serif; font-size: 2.6rem; font-weight: 400;
+      margin-bottom: 1.5rem;
+    }
+    .apropos p { color: var(--gris); margin-bottom: 1rem; }
+
+    /* Contact */
+    #contact { background: var(--encre); color: var(--creme); text-align: center; }
+    #contact h2 {
+      font-family: "Cormorant Garamond", serif; font-size: 2.6rem; font-weight: 400;
+    }
+    #contact p { color: #c9bfb3; max-width: 480px; margin: 1rem auto 2.5rem; }
+    #contact .bouton { border-color: var(--or); color: var(--or); }
+    #contact .bouton:hover { background: var(--or); color: var(--encre); }
+    .reseaux { margin-top: 2.5rem; display: flex; justify-content: center; gap: 2rem; }
+    .reseaux a {
+      font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.2em; color: #c9bfb3;
+    }
+    .reseaux a:hover { color: var(--or); }
+
+    footer {
+      background: var(--encre); color: #8a8076; text-align: center;
+      font-size: 0.8rem; padding: 1.5rem; border-top: 1px solid #3d3631;
+    }
+
+    @media (max-width: 760px) {
+      nav ul { gap: 1rem; }
+      nav ul a { font-size: 0.7rem; letter-spacing: 0.08em; }
+      .apropos { grid-template-columns: 1fr; gap: 2rem; }
+      section { padding: 4rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="#accueil" class="logo">Manon Soma <span>Bijoux</span></a>
+      <ul>
+        <li><a href="#creations">Créations</a></li>
+        <li><a href="#apropos">À propos</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ACCUEIL -->
+  <section class="hero" id="accueil">
+    <p class="sur-titre">Bijoux faits main</p>
+    <h1>Des pièces uniques,<br><em>créées avec soin</em></h1>
+    <p>Chaque bijou est imaginé et façonné à la main, en petite série, pour accompagner vos moments du quotidien comme les plus précieux.</p>
+    <a href="#creations" class="bouton">Découvrir mes créations</a>
+  </section>
+
+  <!-- CRÉATIONS : pour ajouter un bijou, copie un bloc <article class="carte"> ... </article> -->
+  <section id="creations">
+    <div class="conteneur">
+      <div class="titre-section">
+        <h2>Mes créations</h2>
+        <div class="trait"></div>
+      </div>
+
+      <div class="grille">
+        <article class="carte">
+          <div class="image">Photo à venir</div>
+          <!-- Remplace la ligne du dessus par : <div class="image"><img src="images/collier.jpg" alt="Collier"></div> -->
+          <p class="matiere">Collier · Plaqué or</p>
+          <h3>Nom du bijou</h3>
+          <p>Une courte description du bijou, de son inspiration et des matériaux utilisés.</p>
+        </article>
+
+        <article class="carte">
+          <div class="image">Photo à venir</div>
+          <p class="matiere">Boucles d'oreilles · Perles</p>
+          <h3>Nom du bijou</h3>
+          <p>Une courte description du bijou, de son inspiration et des matériaux utilisés.</p>
+        </article>
+
+        <article class="carte">
+          <div class="image">Photo à venir</div>
+          <p class="matiere">Bague · Argent</p>
+          <h3>Nom du bijou</h3>
+          <p>Une courte description du bijou, de son inspiration et des matériaux utilisés.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- À PROPOS -->
+  <section id="apropos">
+    <div class="conteneur apropos">
+      <div class="portrait">Ta photo ici</div>
+      <div>
+        <h2>À propos</h2>
+        <p>Je m'appelle Manon et je crée des bijoux à la main depuis mon atelier. Ici, tu peux raconter comment ta passion a commencé.</p>
+        <p>Parle de ce qui t'inspire, des matériaux que tu aimes travailler et de ce qui rend tes pièces uniques.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2>Une envie, une commande ?</h2>
+    <p>Pour une pièce sur mesure ou une question sur une création, n'hésite pas à me contacter.</p>
+    <a href="mailto:ton-adresse@exemple.com" class="bouton">M'écrire</a>
+    <div class="reseaux">
+      <a href="#">Instagram</a>
+      <a href="#">Etsy</a>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Manon Soma Bijoux · Tous droits réservés
+  </footer>
+
+</body>
+</html>
